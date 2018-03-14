@@ -99,7 +99,6 @@ public class GameController : MonoBehaviour {
     /// </summary>
     public void FillQueue()
     {
-       // Random.InitState((int)Time.time);
         int nbSceneGame = _allMiniGameScenes.Count;
         for (int i = 0; i < nbSceneGame; ++i)
         {

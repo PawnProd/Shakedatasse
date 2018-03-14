@@ -9,6 +9,9 @@ public class MiniGame_Inventory : MonoBehaviour {
     public Sprite[] foodList;
     public Sprite[] elixirList;
 
+    public AudioClip clip;
+    public AudioSource winSource;
+    public AudioSource loseSource;
 
     public Dictionary<string, Sprite[]> masterList = new Dictionary<string, Sprite[]>();
 
@@ -25,7 +28,7 @@ public class MiniGame_Inventory : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        AudioController.Instance.ChangeClip(clip);
         CreateDictionary();
         CreateKeyList();
         InstantiateObjectToSort();
@@ -109,11 +112,13 @@ public class MiniGame_Inventory : MonoBehaviour {
     {
         if (endCondition)
         {
-            print("You Win!");
+            winSource.Play();
+            GameController.Instance.EndMiniGame(true);
         }
         else
         {
-            print("You Lose!");
+            loseSource.Play();
+            GameController.Instance.EndMiniGame(false);
         }
     }
 

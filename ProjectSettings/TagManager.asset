@@ -9,6 +9,7 @@ TagManager:
   - Treasure
   - EndZone
   - Monster
+  - EndDonjon
   layers:
   - Default
   - TransparentFX

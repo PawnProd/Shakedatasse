@@ -56,4 +56,9 @@ public class InputManager : MonoBehaviour {
         return Input.GetMouseButtonDown(0);
     }
 
+    public static bool MouseButton()
+    {
+        return Input.GetMouseButton(0);
+    }
+
 }

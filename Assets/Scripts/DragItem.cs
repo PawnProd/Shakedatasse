@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
     public string typeItem;
+
+    public AudioSource dragSource;
     
 	// Use this for initialization
 	void Start () {
@@ -21,6 +23,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnBeginDrag(PointerEventData pointer)
     {
         print("begin to drag");
+        dragSource.Play();
         GetComponent<Image>().raycastTarget = false;
     }
 
