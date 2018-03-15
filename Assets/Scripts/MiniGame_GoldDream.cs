@@ -14,7 +14,11 @@ public class MiniGame_GoldDream : MonoBehaviour {
     public AudioSource lostSource;
     public AudioSource winSource;
 
+    public TimerScript timerScript;
+
     public bool hasSpawned;
+
+  
 
     public float delay;
     public float timer;
@@ -25,6 +29,8 @@ public class MiniGame_GoldDream : MonoBehaviour {
         GameController.Instance.minigameState = MiniGameState.running;
         AudioController.Instance.ChangeClip(clip);
         CreateNewDream();
+        dreamFrequency -= dreamFrequency * GameController.Instance.speedRatio;
+        treasurePopTime = timerScript.maxTimer * 0.4f;
 	}
 	
 	// Update is called once per frame
@@ -72,9 +78,12 @@ public class MiniGame_GoldDream : MonoBehaviour {
 
     public void CreateNewDream()
     {
-        GameObject randomDream = dreams[Random.Range(0, dreams.Count-1)];
-        Transform randomSpawnPos = dreamSpawns[Random.Range(0, dreamSpawns.Count-1)];
-        
+        GameObject randomDream = dreams[Random.Range(0, dreams.Count)];
+        Transform randomSpawnPos = dreamSpawns[Random.Range(0, dreamSpawns.Count)];
+
+        randomDream.GetComponent<Rigidbody2D>().gravityScale += randomDream.GetComponent<Rigidbody2D>().gravityScale * GameController.Instance.speedRatio;
+
+
         if (timer < treasurePopTime)
         {
             lastDream = Instantiate(randomDream, randomSpawnPos.position, Quaternion.identity);

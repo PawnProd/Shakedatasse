@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -553,11 +553,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4549126065010640, guid: e62dff607c87b0640986656c9b2b7fc9, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4549126065010640, guid: e62dff607c87b0640986656c9b2b7fc9, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114788623580408004, guid: e62dff607c87b0640986656c9b2b7fc9,
         type: 2}
@@ -579,6 +579,12 @@ Prefab:
       propertyPath: miniGameController
       value: 
       objectReference: {fileID: 874892519}
+    - target: {fileID: 212695661131929012, guid: e62dff607c87b0640986656c9b2b7fc9,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8882453e25e6aa94aa4141c1a03eb81f,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e62dff607c87b0640986656c9b2b7fc9, type: 2}
   m_IsPrefabParent: 0
@@ -786,6 +792,7 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: 5f03bafd907e9984c981704d276fdf30, type: 3}
   lostSource: {fileID: 496940697}
   winSource: {fileID: 1114730908}
+  timerScript: {fileID: 1116579384}
   hasSpawned: 0
   delay: 0
   timer: 0
@@ -1017,6 +1024,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91e891265c8008742b50e9c1199a8676, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1116579384 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114040398185521788, guid: 91e891265c8008742b50e9c1199a8676,
+    type: 2}
+  m_PrefabInternal: {fileID: 1116579383}
+  m_Script: {fileID: 11500000, guid: a19a39416fc1c9d44b4cf9e5bbb556c5, type: 3}
 --- !u!1 &1312868440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,7 +1136,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dbaf67f06fa0ec54dac0d343a604432b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 206294648ddec3f4ba9583daab651058, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -10,6 +10,7 @@ TagManager:
   - EndZone
   - Monster
   - EndDonjon
+  - Trap
   layers:
   - Default
   - TransparentFX

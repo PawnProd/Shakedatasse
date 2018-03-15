@@ -26,6 +26,7 @@ public class MiniGame_Runaway : MonoBehaviour {
         
         StartCoroutine(WaitStart());
         AudioController.Instance.ChangeClip(clip);
+        monsterSpeed += monsterSpeed * GameController.Instance.speedRatio;
 	}
 	
 	// Update is called once per frame

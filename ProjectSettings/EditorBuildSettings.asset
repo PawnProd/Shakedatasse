@@ -23,3 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Transition.unity
     guid: af6c045578f0a814f9b837983e2806b8
+  - enabled: 1
+    path: Assets/_Scenes/Bossgame.unity
+    guid: bd6573911c9502347ab8d1a77a8dc4f4

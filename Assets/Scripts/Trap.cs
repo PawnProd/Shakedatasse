@@ -5,25 +5,56 @@ using UnityEngine;
 public class Trap : MonoBehaviour {
 
     public TrapType type;
+    public bool isMoving;
+    public float speedMoving = 2f;
+    private TrapBehavior _behavior;
 
-    public TrapBehavior behavior;
+    private bool clickRelease = true;
+
+    private void Start()
+    {
+        _behavior = GetComponent<TrapBehavior>();
+    }
 
     private void Update()
     {
-        if(type == TrapType.click && InputManager.MouseButtonDown())
+        if (type == TrapType.longclick && clickRelease)
         {
-            behavior.TrapInputEventBehavior();
+            _behavior.TrapIdleBehavior();
         }
-        else if (type == TrapType.longclick && InputManager.MouseButton())
-        {
 
+        if(isMoving)
+        {
+            transform.Translate(Vector3.left * Time.deltaTime * speedMoving);
         }
-        else if(type == TrapType.swipe)
-        {
+    }
 
+    private void OnMouseDown()
+    {
+        if (type == TrapType.click)
+        {
+            _behavior.TrapInputEventBehavior();
+        }
+    }
+
+    private void OnMouseDrag()
+    {
+        if (type == TrapType.longclick)
+        {
+            clickRelease = false;
+            _behavior.TrapInputEventBehavior();
+        }
+    }
+
+    private void OnMouseUp()
+    {
+        if (type == TrapType.longclick)
+        {
+            clickRelease = true;
         }
     }
 }
+
 
 public enum TrapType
 {

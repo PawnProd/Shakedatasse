@@ -22,6 +22,7 @@ public class MiniGame_GetItems : MonoBehaviour {
 	void Start () {
         GameController.Instance.minigameState = MiniGameState.running;
         GameObject newPlayer = Instantiate(player, spawnPlayer.position, Quaternion.identity) as GameObject;
+        maxFlowers = Mathf.Clamp((int)(GameController.Instance.speedRatio * 100), 1, spawnPositions.Count);
         player = newPlayer;
         CreateItems();
         AudioController.Instance.ChangeClip(clipAudio);

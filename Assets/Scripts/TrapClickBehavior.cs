@@ -8,4 +8,9 @@ public class TrapClickBehavior : TrapBehavior {
     {
         Destroy(gameObject);
     }
+
+    public override void TrapIdleBehavior()
+    {
+        throw new System.NotImplementedException();
+    }
 }

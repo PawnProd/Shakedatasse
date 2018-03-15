@@ -29,6 +29,7 @@ public class MiniGame_Inventory : MonoBehaviour {
     // Use this for initialization
     void Start () {
         AudioController.Instance.ChangeClip(clip);
+        GameController.Instance.minigameState = MiniGameState.running;
         CreateDictionary();
         CreateKeyList();
         InstantiateObjectToSort();

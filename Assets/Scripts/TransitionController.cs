@@ -5,7 +5,7 @@ using UnityEngine;
 public class TransitionController : MonoBehaviour {
 
     public TransitionATHManager athManager;
-    public float transitionTime = 5f;
+    public float transitionTime;
 
     public AudioClip clipWin;
     public AudioClip clipLose;
@@ -15,19 +15,21 @@ public class TransitionController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         gameController = GameController.Instance;
-
-        StartCoroutine(WaitInput());
+        
 
         // On définit le clip à jouer en fonction de l'état du jeu
         if (gameController.gameState == "LOSE")
         {
             AudioController.Instance.ChangeClip(clipLose);
-            athManager.RemoveHeart(gameController.life);
+           
         }
         else
         {
             AudioController.Instance.ChangeClip(clipWin);
         }
+        athManager.RemoveHeart(gameController.life);
+        transitionTime = AudioController.Instance.source.clip.length;
+        StartCoroutine(WaitInput());
         athManager.SetPlayerName(gameController.playerName);
         athManager.SetLevelText(gameController.level.ToString());
     }

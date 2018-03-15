@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour {
     public int life = 4;
     public int level = 1;
     public float delayBeforeNextScene = 1f;
+    public float speedRatio = 0;
 
     // ETAT DU JEU (WIN ou LOSE)
     public string gameState;
@@ -111,7 +112,7 @@ public class GameController : MonoBehaviour {
             _allMiniGameScenes.Remove(sceneName);
             
         }
-
+        sortPlayScene.Enqueue(_transitionScene);
         sortPlayScene.Enqueue(_bossScene);
     }
 
@@ -154,11 +155,17 @@ public class GameController : MonoBehaviour {
     {
         
         string sceneName = sortPlayScene.Dequeue().ToString();
+        print(sceneName);
         if(sceneName.Contains("Minigame"))
         {
             _allMiniGameScenes.Add(sceneName);
         }
-
+        else if(sceneName.Contains("Bossgame"))
+        {
+            FillQueue();
+        }
+        speedRatio += 0.001f;
+        AudioController.Instance.ChangePitch(speedRatio);
         SceneTools.ReplaceScene(sceneName);
     }
 

@@ -5,4 +5,5 @@ using UnityEngine;
 public abstract class TrapBehavior : MonoBehaviour {
 
     public abstract void TrapInputEventBehavior();
+    public abstract void TrapIdleBehavior();
 }
