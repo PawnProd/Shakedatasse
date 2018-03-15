@@ -12,9 +12,13 @@ public class MiniGame_GetItems : MonoBehaviour {
 
     public List<Transform> spawnPositions;
 
+    public TimerScript timerScript;
+
     public AudioClip clipAudio;
     public AudioSource flowerSource;
     public AudioSource groundSource;
+
+    public GameObject rule;
 
     public int pickedFlowers = 0;
     public int maxFlowers;
@@ -32,6 +36,10 @@ public class MiniGame_GetItems : MonoBehaviour {
 	void Update () {
         if(GameController.Instance.minigameState == MiniGameState.running)
         {
+            if(timerScript.timer > timerScript.maxTimer * 0.2f)
+            {
+                rule.SetActive(false);
+            }
             if (InputManager.MouseButtonDown())
             {
                 Vector3 mousePos = Input.mousePosition;

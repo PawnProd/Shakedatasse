@@ -13,6 +13,8 @@ public class MiniGame_Runaway : MonoBehaviour {
     public AudioSource winSource;
     public AudioSource monsterSource;
 
+    public GameObject rule;
+
     public float playerSpeed;
     public float monsterSpeed;
     public float timeScale; // au moins 10 sinon le monstre est trop rapide
@@ -56,6 +58,7 @@ public class MiniGame_Runaway : MonoBehaviour {
     IEnumerator WaitStart()
     {
         yield return new WaitForSeconds(1);
+        rule.SetActive(false);
         newMonster = Instantiate(monster, monsterSpawn.position, Quaternion.identity);
         monsterSource.Play();
         isStart = true;

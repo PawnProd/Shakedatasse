@@ -359,6 +359,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &328625981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 328625982}
+  - component: {fileID: 328625984}
+  - component: {fileID: 328625983}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &328625982
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 328625981}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1116579384}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 297, y: 159}
+  m_SizeDelta: {x: 792.9, y: 452.9}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &328625983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 328625981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 285c0d57e4496ba4a9345aaf8d6b4198, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 251
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Ramassez toutes les fleurs !
+--- !u!222 &328625984
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 328625981}
 --- !u!1 &351746421
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,9 +849,11 @@ MonoBehaviour:
   - {fileID: 931508692}
   - {fileID: 617634968}
   - {fileID: 1492337188}
+  timerScript: {fileID: 1116579385}
   clipAudio: {fileID: 8300000, guid: b304ff59043f2cf41bc10142a94d5aff, type: 3}
   flowerSource: {fileID: 68424385}
   groundSource: {fileID: 761549409}
+  rule: {fileID: 328625981}
   pickedFlowers: 0
   maxFlowers: 1
 --- !u!4 &874892520
@@ -1032,9 +1108,45 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224680831880660366, guid: 91e891265c8008742b50e9c1199a8676,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224680831880660366, guid: 91e891265c8008742b50e9c1199a8676,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224680831880660366, guid: 91e891265c8008742b50e9c1199a8676,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114816891351302270, guid: 91e891265c8008742b50e9c1199a8676,
+        type: 2}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 224991173359869050, guid: 91e891265c8008742b50e9c1199a8676,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91e891265c8008742b50e9c1199a8676, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &1116579384 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224680831880660366, guid: 91e891265c8008742b50e9c1199a8676,
+    type: 2}
+  m_PrefabInternal: {fileID: 1116579383}
+--- !u!114 &1116579385 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114040398185521788, guid: 91e891265c8008742b50e9c1199a8676,
+    type: 2}
+  m_PrefabInternal: {fileID: 1116579383}
+  m_Script: {fileID: 11500000, guid: a19a39416fc1c9d44b4cf9e5bbb556c5, type: 3}
 --- !u!1 &1240430967
 GameObject:
   m_ObjectHideFlags: 0

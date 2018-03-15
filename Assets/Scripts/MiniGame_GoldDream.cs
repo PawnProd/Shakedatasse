@@ -16,6 +16,8 @@ public class MiniGame_GoldDream : MonoBehaviour {
 
     public TimerScript timerScript;
 
+    public GameObject rule;
+
     public bool hasSpawned;
 
   
@@ -37,6 +39,10 @@ public class MiniGame_GoldDream : MonoBehaviour {
 	void Update () {
         if(GameController.Instance.minigameState == MiniGameState.running)
         {
+            if (timerScript.timer >= timerScript.maxTimer * 0.2f)
+            {
+                rule.SetActive(false);
+            }
             if (!hasSpawned)
             {
                 timer += Time.deltaTime;

@@ -18,6 +18,10 @@ public class MiniGame_Inventory : MonoBehaviour {
     public Image objectToSort;
     public Image emptySlot;
 
+    public TimerScript timerScript;
+
+    public GameObject rule;
+
     public GameObject[] inventoryPanels;
 
     public string goodInventory;
@@ -39,7 +43,10 @@ public class MiniGame_Inventory : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(timerScript.timer >= timerScript.maxTimer * 0.2f)
+        {
+            rule.SetActive(false);
+        }
 	}
 
     void CreateDictionary() // Create a dictionary with 3 tables (Food/Weapons/Elixirs)

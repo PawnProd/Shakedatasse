@@ -10,7 +10,7 @@ public class TrapLongClickBehavior : TrapBehavior {
     private void Start()
     {
         startPosition = transform.position;
-        endPosition.y = transform.position.y + 2;
+        endPosition.y = transform.position.y + 4;
     }
 
     public override void TrapInputEventBehavior()

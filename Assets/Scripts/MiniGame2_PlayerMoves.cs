@@ -35,16 +35,19 @@ public class MiniGame2_PlayerMoves : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Bad Dream")
+        if(GameController.Instance.minigameState == MiniGameState.running)
         {
-            miniGameController.EndGame(false);
-            Destroy(collision.gameObject);
-        }
+            if (collision.gameObject.tag == "Bad Dream")
+            {
+                miniGameController.EndGame(false);
+                Destroy(collision.gameObject);
+            }
 
-        if (collision.gameObject.tag == "Treasure")
-        {
-            miniGameController.EndGame(true);
-            Destroy(collision.gameObject);
+            if (collision.gameObject.tag == "Treasure")
+            {
+                miniGameController.EndGame(true);
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
