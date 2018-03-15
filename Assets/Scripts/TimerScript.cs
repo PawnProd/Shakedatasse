@@ -13,7 +13,7 @@ public class TimerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        maxTimer -= GameController.Instance.speedRatio * maxTimer;
+        maxTimer -= GameController.Instance.speedRatio * 2 * maxTimer;
 	}
 	
 	// Update is called once per frame

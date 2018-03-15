@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Background
+  m_Name: MiniGameBoss_BG
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 1609d63ff42dacb4684eb2e25de9bc08, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f95f51aefa2c264dab955f0caa84299, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
