@@ -20,17 +20,22 @@ public class BossManager : MonoBehaviour {
     public Queue qteInput = new Queue();
     public string qte;
 
-    public float delayBeforeNextQTE = 5f;
+    public float delayBeforeNextQTE = 2f;
 
     private float _timer = 0;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        AudioController.Instance.ChangeClip(clipPhase1);
+    }
+
+    // Use this for initialization
+    void Start () {
         phase = BossPhase.phase1;
         GenerateRandomTrap();
         GenerateQTE();
-        AudioController.Instance.ChangeClip(clipPhase1);
-        delayBeforeNextQTE -= Mathf.Clamp(delayBeforeNextQTE * GameController.Instance.speedRatio, 2, 5);
+        
+        delayBeforeNextQTE -= Mathf.Clamp(delayBeforeNextQTE * GameController.Instance.gameRatio, 1, 2);
 	}
 
     private void Update()
@@ -40,6 +45,7 @@ public class BossManager : MonoBehaviour {
             _timer += Time.deltaTime;
             if (_timer >= delayBeforeNextQTE)
             {
+                athManager.FeedbackInput(new Color32(180, 70, 70, 255));
                 EndGame(false);
             }
         }
@@ -59,7 +65,7 @@ public class BossManager : MonoBehaviour {
     {
         int playerLife = GameController.Instance.life;
 
-        int randomNbTrap = UnityEngine.Random.Range(Mathf.Clamp(playerLife, 1, 4), playerLife + 2);
+        int randomNbTrap = UnityEngine.Random.Range(Mathf.Clamp(playerLife, 1, 5), playerLife + 1);
 
         for(int i = 0; i < randomNbTrap; ++i)
         {
@@ -104,6 +110,7 @@ public class BossManager : MonoBehaviour {
         {
             EndGame(true);
         }
+        athManager.FeedbackInput(Color.white);
     }
 
     public void ShowQTE()

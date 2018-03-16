@@ -28,7 +28,7 @@ public class MiniGame_Runaway : MonoBehaviour {
         
         StartCoroutine(WaitStart());
         AudioController.Instance.ChangeClip(clip);
-        monsterSpeed += monsterSpeed * GameController.Instance.speedRatio;
+        monsterSpeed += monsterSpeed * GameController.Instance.gameRatio;
 	}
 	
 	// Update is called once per frame
@@ -36,7 +36,7 @@ public class MiniGame_Runaway : MonoBehaviour {
 		
         if(newMonster != null && isStart && GameController.Instance.minigameState == MiniGameState.running)
         {
-            monsterSpeed += Time.deltaTime / timeScale;
+            monsterSpeed += (Time.deltaTime / timeScale);
             newMonster.transform.Translate(Vector3.left * monsterSpeed);
         }
 

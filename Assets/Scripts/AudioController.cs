@@ -44,6 +44,12 @@ public class AudioController : MonoBehaviour {
         pitch += pitch * ratio;
         mixer.audioMixer.SetFloat("PitchVolume", pitch);
     }
+
+    public void ResetPitch()
+    {
+        UnityEngine.Audio.AudioMixerGroup mixer = source.outputAudioMixerGroup;
+        mixer.audioMixer.SetFloat("PitchVolume", 100);
+    }
 	
 	
 }

@@ -17,13 +17,13 @@ public class TrapLongClickBehavior : TrapBehavior {
     {
         print(transform.position);
         if(transform.position.y < endPosition.y)
-            transform.Translate(Vector3.up * Time.deltaTime);
+            transform.Translate(Vector3.up * Time.deltaTime * 1.2f);
     }
 
     public override void TrapIdleBehavior()
     {
         if(transform.position.y > startPosition.y)
-            transform.Translate(Vector3.down * Time.deltaTime);
+            transform.Translate(Vector3.down * Time.deltaTime * 1.2f);
     }
 
 

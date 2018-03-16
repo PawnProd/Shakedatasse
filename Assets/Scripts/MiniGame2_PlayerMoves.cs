@@ -12,7 +12,7 @@ public class MiniGame2_PlayerMoves : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        playerSpeed += playerSpeed * GameController.Instance.gameRatio;
 	}
 	
 	// Update is called once per frame

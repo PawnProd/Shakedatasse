@@ -10,6 +10,8 @@ public class MiniGame_GoldDream : MonoBehaviour {
     public GameObject lastDream = null;
     public GameObject treasure;
 
+    public GameObject player;
+
     public AudioClip clip;
     public AudioSource lostSource;
     public AudioSource winSource;
@@ -20,20 +22,21 @@ public class MiniGame_GoldDream : MonoBehaviour {
 
     public bool hasSpawned;
 
-  
-
     public float delay;
     public float timer;
     public float dreamFrequency;
     public float treasurePopTime; //dreamFrequency != treasurePopTime
+
+    private float fallingSpeed;
 	// Use this for initialization
 	void Start () {
         GameController.Instance.minigameState = MiniGameState.running;
         AudioController.Instance.ChangeClip(clip);
-        CreateNewDream();
-        dreamFrequency -= dreamFrequency * GameController.Instance.speedRatio;
+        dreamFrequency -= dreamFrequency * GameController.Instance.gameRatio;
         treasurePopTime = timerScript.maxTimer * 0.4f;
-	}
+        fallingSpeed = Mathf.Abs((player.transform.position.y - dreamSpawns[0].position.y) / (treasurePopTime));
+        CreateNewDream();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -87,18 +90,17 @@ public class MiniGame_GoldDream : MonoBehaviour {
         GameObject randomDream = dreams[Random.Range(0, dreams.Count)];
         Transform randomSpawnPos = dreamSpawns[Random.Range(0, dreamSpawns.Count)];
 
-        randomDream.GetComponent<Rigidbody2D>().gravityScale += randomDream.GetComponent<Rigidbody2D>().gravityScale * GameController.Instance.speedRatio;
-
-
         if (timer < treasurePopTime)
         {
             lastDream = Instantiate(randomDream, randomSpawnPos.position, Quaternion.identity);
+            lastDream.GetComponent<Dream>().speed = fallingSpeed;
         }
 
         if (timer > treasurePopTime)
         {
             
-            Instantiate(treasure, randomSpawnPos.position, Quaternion.identity);
+            GameObject dreamTreasure = Instantiate(treasure, randomSpawnPos.position, Quaternion.identity);
+            dreamTreasure.GetComponent<Dream>().speed = fallingSpeed;
             hasSpawned = true;
            
         }

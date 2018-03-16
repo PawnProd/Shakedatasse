@@ -558,7 +558,7 @@ MonoBehaviour:
   rule: {fileID: 1691762049}
   playerSpeed: 0
   monsterSpeed: 0.03
-  timeScale: 20
+  timeScale: 15
   isStart: 0
 --- !u!4 &874892520
 Transform:
@@ -843,7 +843,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ffffffffuuuuyyyeer !
+  m_Text: Ffffffffuuuuyyyeez !
 --- !u!222 &1691762052
 CanvasRenderer:
   m_ObjectHideFlags: 0

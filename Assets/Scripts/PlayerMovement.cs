@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour {
     private void Start()
     {
         startPos = transform.position;
-        speed += speed * GameController.Instance.speedRatio;
+        speed += speed * GameController.Instance.gameRatio;
     }
 
     // Update is called once per frame
@@ -28,8 +28,8 @@ public class PlayerMovement : MonoBehaviour {
         {
             if(bossManager.qte != "" && InputManager.IsDown(bossManager.qte))
             {
-                print("Good !");
-                bossManager.NextQTE();
+                bossManager.athManager.FeedbackInput(new Color32(70, 180, 85, 255));
+                StartCoroutine(WaitFeedback());
             }
             else
             {
@@ -40,12 +40,19 @@ public class PlayerMovement : MonoBehaviour {
                         if(InputManager.IsDown(key))
                         {
                             bossManager.EndGame(false);
+                            bossManager.athManager.FeedbackInput(new Color32(180, 70, 70, 255));
                         }
                     }
                 }
             }
         }
 	}
+
+    IEnumerator WaitFeedback()
+    {
+        yield return new WaitForSeconds(0.3f);
+        bossManager.NextQTE();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

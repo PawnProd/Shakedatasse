@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour {
     public int level = 1;
     public float delayBeforeNextScene = 1f;
     public float speedRatio = 0;
+    public float gameRatio = 0;
 
     // ETAT DU JEU (WIN ou LOSE)
     public string gameState;
@@ -88,7 +89,7 @@ public class GameController : MonoBehaviour {
             {
                 _bossScene = scene;
             }
-            else if(!scene.Contains("Menu"))
+            else if(!scene.Contains("Menu") && !scene.Contains("GameOver"))
             {
                 _transitionScene = scene;
             }
@@ -135,8 +136,17 @@ public class GameController : MonoBehaviour {
                 gameState = "LOSE";
                 --life;
             }
-            ++level;
-            StartCoroutine(NextSceneDelayed());
+            print("Life " + life);
+            if(life <= 0)
+            {
+                SceneTools.ReplaceScene("GameOver");
+            }
+            else
+            {
+                ++level;
+                StartCoroutine(NextSceneDelayed());
+            }
+            
         }
       
     }
@@ -165,6 +175,7 @@ public class GameController : MonoBehaviour {
             FillQueue();
         }
         speedRatio += 0.001f;
+        gameRatio += 0.01f;
         AudioController.Instance.ChangePitch(speedRatio);
         SceneTools.ReplaceScene(sceneName);
     }

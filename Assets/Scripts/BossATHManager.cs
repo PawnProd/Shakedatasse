@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BossATHManager : MonoBehaviour {
 
     public Text qteText;
+    public Image qteImg;
 
 	public void ShowCanvas()
     {
@@ -14,6 +15,11 @@ public class BossATHManager : MonoBehaviour {
 
     public void SetQTEText(string qte)
     {
-        qteText.text = qte;
+        qteText.text = qte.ToUpper();
+    }
+
+    public void FeedbackInput(Color color)
+    {
+        qteImg.color = color;
     }
 }
