@@ -29,10 +29,14 @@ public class MiniGame_Inventory : MonoBehaviour {
     private List<string> _keyNames = new List<string>();
 
 
+    private void Awake()
+    {
+        AudioController.Instance.ChangeClip(clip); 
+    }
 
     // Use this for initialization
     void Start () {
-        AudioController.Instance.ChangeClip(clip);
+        
         GameController.Instance.minigameState = MiniGameState.running;
         CreateDictionary();
         CreateKeyList();

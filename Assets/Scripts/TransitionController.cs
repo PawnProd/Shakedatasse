@@ -16,6 +16,10 @@ public class TransitionController : MonoBehaviour {
 	void Start () {
         gameController = GameController.Instance;
         
+        if(GameController.Instance.GetNextScene() == "Bossgame")
+        {
+            athManager.SetBossAnnounce();
+        }
 
         // On définit le clip à jouer en fonction de l'état du jeu
         if (gameController.gameState == "LOSE")

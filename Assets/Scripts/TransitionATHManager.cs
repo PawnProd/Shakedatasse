@@ -10,6 +10,10 @@ public class TransitionATHManager : MonoBehaviour {
     public Text levelText;
     public Text playerName;
 
+    public Image player;
+
+    public Sprite bossAnnounce;
+
     public GameObject panelPlayer;
     public GameObject inputInfo;
 
@@ -68,5 +72,10 @@ public class TransitionATHManager : MonoBehaviour {
     public void SetPlayerName(string name)
     {
         playerName.text = name;
+    }
+
+    public void SetBossAnnounce()
+    {
+        player.sprite = bossAnnounce;
     }
 }

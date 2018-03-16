@@ -66,6 +66,8 @@ public class PlayerMovement : MonoBehaviour {
         if(collision.collider.tag == "Trap")
         {
             bossManager.EndGame(false);
+            transform.GetChild(0).SetParent(transform.parent);
+            Destroy(gameObject);
         }
     }
 

@@ -1066,6 +1066,8 @@ MonoBehaviour:
   - {fileID: 217044416}
   levelText: {fileID: 527014983}
   playerName: {fileID: 1735624910}
+  player: {fileID: 1290408094}
+  bossAnnounce: {fileID: 21300000, guid: 4d2df6ef69811dd43a9766a180048abd, type: 3}
   panelPlayer: {fileID: 1021750842}
   inputInfo: {fileID: 596657071}
 --- !u!1 &1915574046

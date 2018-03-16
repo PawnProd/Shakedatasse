@@ -38,17 +38,35 @@ public class AudioController : MonoBehaviour {
 
     public void ChangePitch(float ratio)
     {
-        UnityEngine.Audio.AudioMixerGroup mixer = source.outputAudioMixerGroup;
         float pitch;
-        mixer.audioMixer.GetFloat("PitchVolume", out pitch);
-        pitch += pitch * ratio;
-        mixer.audioMixer.SetFloat("PitchVolume", pitch);
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            pitch = source.pitch;
+            pitch += pitch * ratio;
+            source.pitch = pitch;
+        }
+        else
+        {
+            UnityEngine.Audio.AudioMixerGroup mixer = source.outputAudioMixerGroup;
+            mixer.audioMixer.GetFloat("PitchVolume", out pitch);
+            pitch += pitch * ratio;
+            mixer.audioMixer.SetFloat("PitchVolume", pitch);
+        }
+
     }
 
     public void ResetPitch()
     {
-        UnityEngine.Audio.AudioMixerGroup mixer = source.outputAudioMixerGroup;
-        mixer.audioMixer.SetFloat("PitchVolume", 100);
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            source.pitch = 1;
+        }
+        else
+        {
+            UnityEngine.Audio.AudioMixerGroup mixer = source.outputAudioMixerGroup;
+            mixer.audioMixer.SetFloat("PitchVolume", 100);
+        }
+       
     }
 	
 	
